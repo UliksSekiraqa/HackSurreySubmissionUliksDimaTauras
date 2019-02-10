@@ -17,6 +17,24 @@
 <!--Replace with your tailwind.css once created-->
 
 </head>
+<?php 
+  $taskID = $_GET["TaskID"];
+  $getTaskInfo = "SELECT *
+                        FROM tasks
+                        WHERE TaskID =$taskID";
+  require_once "includes/dbconnect.php";
+  $result = $conn->query($getTaskInfo);
+  $taskInfo = $result->fetch_assoc();
+
+  $creatorID = $taskInfo["CreatorID"];
+  $getCreatorInfoQuery = "SELECT Forename, Surname, Registration_date, Location
+                       FROM users
+                       WHERE UserID = ' $creatorID'";
+  $userResult = $conn->query($getCreatorInfoQuery);
+  $CreatorInfo = $userResult->fetch_assoc();
+
+  $conn->close();
+?> 
 
 <body class="bg-grey-lightest font-sans leading-normal tracking-normal">
   <div class="flex">
@@ -63,11 +81,11 @@
         <img class="block h-16 sm:h-24 rounded-full mx-auto mb-4 sm:mb-0 sm:mr-4 sm:ml-0" src="https://previews.123rf.com/images/kurhan/kurhan1103/kurhan110300100/9050894-happy-man.jpg" alt="https://previews.123rf.com/images/kurhan/kurhan1103/kurhan110300100/9050894-happy-man.jpg">
         <div class="text-center sm:text-left sm:flex-grow">
           <div class="mb-4">
-            <p class="text-xl leading-tight text-black">Name:</p>
+            <p class="text-xl leading-tight text-black">Name: <?php echo $CreatorInfo["Forename"], ' ',$CreatorInfo["Surname"]?></p>
             &nbsp
-            <p class="text-sm leading-tight text-grey-dark">Member Since:</p>
+            <p class="text-sm leading-tight text-grey-dark">Member Since: <?php echo $CreatorInfo["Registration_date"]?></p>
             &nbsp
-            <p class="text-sp leading-tight text-black">Location:</p>
+            <p class="text-sp leading-tight text-black">Location: <?php echo $CreatorInfo["Location"]?></p>
           </div>
 
         </div>
@@ -82,7 +100,7 @@
       <div class="text-center sm:text-left sm:flex-grow">
         <p class="text-xl leading-tight text-black">Description:</p>
         &nbsp
-        <p class="text-x1 leading-tight text-black">SQL_STATEMENT</p>
+        <p class="text-x1 leading-tight text-black"><?php echo $taskInfo["Description"]?></p>
   </div>
   &nbsp
 
