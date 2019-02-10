@@ -21,6 +21,8 @@ $conn->query
         VALUES ('$forename', '$surname', '$email', '$pass_hash', '$registration_date', '$phone', '$gender')
     ");
 
+$conn->close();
+
 function debug_to_console( $data ) {
     $output = $data;
     if ( is_array( $output ) )

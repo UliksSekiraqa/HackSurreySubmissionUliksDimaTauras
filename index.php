@@ -39,7 +39,7 @@
         <a href="#responsive-header" class="no-underline block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4">
           Home
         </a>
-        <a href="#responsive-header" class="no-underline block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4">
+        <a href="profile.html" class="no-underline block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4">
           Profile
         </a>
       </div>
@@ -118,13 +118,15 @@
       </div>
       <div class="w-3/4">
         <div class="container mb-2">
-
-          <div class="max-w-md w-full lg:flex mx-auto mt-4 shadow-md">
+          <?php require_once "includes/createJobList.php"
+          ?>
+          <!-- <div class="max-w-md w-full lg:flex mx-auto mt-4 shadow-md">
             <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style="background-image: url('https://tailwindcss.com/img/card-left.jpg')" title="Woman holding a mug">
             </div>
             <div class="border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
               <div class="mb-8">
-                <div class="text-black font-bold text-xl mb-2">Can coffee make you a better developer?</div>
+                <div class="text-black font-bold text-xl mb-2">
+                <a href="full-job-description.html"> Can coffee make you a better developer?</a></div>
                 <p class="text-grey-darker text-base">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.</p>
               </div>
               <div class="flex items-center">
@@ -153,7 +155,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
 
         </div>
       </div>
