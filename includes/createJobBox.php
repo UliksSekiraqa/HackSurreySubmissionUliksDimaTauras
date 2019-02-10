@@ -5,6 +5,8 @@
                          WHERE UserID = ' $creatorID'";
     $userResult = $conn->query($getCreatorInfoQuery);
     $CreatorInfo = $userResult->fetch_assoc();
+    $taskID = $taskInfo["TaskID"];
+    echo "<script>console.log( 'TaskID: " . $taskID . "' );</script>";
 ?>
 <div class="max-w-md w-full lg:flex mx-auto mt-4 shadow-md">
     <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style="background-image: url('https://tailwindcss.com/img/card-left.jpg')" title="Woman holding a mug">
@@ -12,7 +14,7 @@
     <div class="border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
         <div class="mb-8">
             <div class="text-black font-bold text-xl mb-2">
-                <a href="full-job-description.php"> <?php echo $taskInfo["Topic"]?></a>
+                <a href=<?php echo "full-job-description.php?TaskID=".$taskID?>> <?php echo $taskInfo["Topic"]?></a>
             </div>
             <p class="text-grey-darker text-base"><?php echo $taskInfo["Description"]?></p>
         </div>
