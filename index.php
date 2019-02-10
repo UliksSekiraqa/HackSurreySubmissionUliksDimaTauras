@@ -44,7 +44,7 @@
         </a>
       </div>
       <div>
-        <a href="post_job_form.html" class="inline-block text-sm px-4 py-2 leading-none rounded text-white mt-4 lg:mt-0 mr-4 no-underline hover:text-teal hover:bg-white">Post a job!</a>
+        <a href="post-job.html" class="inline-block text-sm px-4 py-2 leading-none rounded text-white mt-4 lg:mt-0 mr-4 no-underline hover:text-teal hover:bg-white">Post a job!</a>
       </div>
       <div>
         <a href="login.html" class="inline-block text-sm px-4 py-2 leading-none rounded text-white mt-4 lg:mt-0 mr-4 no-underline hover:text-teal hover:bg-white">Log in</a>

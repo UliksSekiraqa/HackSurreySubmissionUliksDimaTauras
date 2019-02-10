@@ -44,7 +44,7 @@
 
         <div class="flex items-center flex-no-shrink text-white mr-6">
           <svg class="fill-current h-8 w-8 mr-2" width="54" height="54" viewBox="0 0 54 54" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"/></svg>
-          <span class="font-semibold text-xl tracking-tight">Company</span>
+          <span class="font-semibold text-xl tracking-tight">Anti-DIY</span>
         </div>
         <div class="block lg:hidden">
           <button class="flex items-center px-3 py-2 border rounded text-teal-lighter border-teal-light hover:text-white hover:border-white">
@@ -61,13 +61,13 @@
             </a>
           </div>
           <div>
-            <a href="#" class="inline-block text-sm px-4 py-2 leading-none rounded text-white mt-4 lg:mt-0 mr-4 no-underline hover:text-teal hover:bg-white">Post a job!</a>
+            <a href="post-job.html" class="inline-block text-sm px-4 py-2 leading-none rounded text-white mt-4 lg:mt-0 mr-4 no-underline hover:text-teal hover:bg-white">Post a job!</a>
           </div>
           <div>
-            <a href="#" class="inline-block text-sm px-4 py-2 leading-none rounded text-white mt-4 lg:mt-0 mr-4 no-underline hover:text-teal hover:bg-white">Log in</a>
+            <a href="login.html" class="inline-block text-sm px-4 py-2 leading-none rounded text-white mt-4 lg:mt-0 mr-4 no-underline hover:text-teal hover:bg-white">Log in</a>
           </div>
           <div>
-            <a href="#" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0 no-underline">Sign up</a>
+            <a href="signup.html" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0 no-underline">Sign up</a>
           </div>
         </div>
       </nav>
@@ -113,7 +113,7 @@
                 Location
               </div>
               <div class="border border-t-0 border-teal rounded-b bg-teal-lightest px-4 py-3 text-black">
-                <p>Guildford</p>
+                <p><?php echo $taskInfo["Location"]?></p>
               </div>
             </div>
             &emsp;&emsp;
@@ -122,7 +122,7 @@
                 Price of the job
               </div>
               <div class="border border-t-0 border-teal rounded-b bg-teal-lightest px-4 py-3 text-black">
-                <p>Price of the job</p>
+                <p>£<?php echo $taskInfo["Price"]?></p>
               </div>
             </div>
 
@@ -132,7 +132,7 @@
                 Topic
               </div>
               <div class="border border-t-0 border-teal rounded-b bg-teal-lightest px-4 py-3 text-black">
-                <p>Topic</p>
+                <p><?php echo $taskInfo["Topic"]?></p>
               </div>
             </div>
           </div>
