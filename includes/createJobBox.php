@@ -21,7 +21,7 @@
     <div class="border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
         <div class="mb-8">
             <div class="text-black font-bold text-xl mb-2">
-                <a href="full-job-description.html"> <?php echo $taskInfo["Topic"]?></a>
+                <a href="full-job-description.php"> <?php echo $taskInfo["Topic"]?></a>
             </div>
             <p class="text-grey-darker text-base"><?php echo $taskInfo["Description"]?></p>
         </div>
