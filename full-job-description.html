@@ -18,6 +18,23 @@
 
 </head>
 
+<?php 
+  $taskID = $_GET["TaskID"];
+  $getTaskInfo = "SELECT *
+                        FROM tasks
+                        WHERE TaskID =$taskID";
+  require_once "includes/dbconnect.php";
+  $result = $conn->query($getTaskInfo);
+  $taskInfo = $result->fetch_assoc();
+  $creatorID = $taskInfo["CreatorID"];
+  $getCreatorInfoQuery = "SELECT Forename, Surname, Registration_date, Location
+                       FROM users
+                       WHERE UserID = ' $creatorID'";
+  $userResult = $conn->query($getCreatorInfoQuery);
+  $CreatorInfo = $userResult->fetch_assoc();
+  $conn->close();
+?> 
+
 <body class="bg-grey-lightest font-sans leading-normal tracking-normal">
 
   <div class="flex">
@@ -68,10 +85,10 @@
           <img class="block h-16 sm:h-24 rounded-full mx-auto mb-4 sm:mb-0 sm:mr-4 sm:ml-0" src="https://avatars2.githubusercontent.com/u/4323180?s=400&u=4962a4441fae9fba5f0f86456c6c506a21ffca4f&v=4" alt="">
           <div class="text-center sm:text-left sm:flex-grow">
             <div class="mb-4">
-              <p class="text-xl leading-tight">Name Surname</p>
+              <p class="text-xl leading-tight"><?php echo $CreatorInfo["Forename"], ' ',$CreatorInfo["Surname"]?></p>
               <hr>
-              <p class="text-sm leading-tight text-grey-dark">Member since </p>
-              <p class="text-sm leading-tight text-grey-dark">Location </p>
+              <p class="text-sm leading-tight text-grey-dark">Member since: <?php echo $CreatorInfo["Registration_date"]?></p>
+              <p class="text-sm leading-tight text-grey-dark">Location: <?php echo $CreatorInfo["Location"]?></p>
             </div>
           </div>
         </div>
@@ -85,7 +102,7 @@
                 Description of the job
               </div>
               <div class="border border-t-0 border-teal rounded-b bg-teal-lightest px-4 py-3 text-black">
-                <p>Description of the job Description of the job Description of the job Description of the job Description of the job Description of the job Description of the job</p>
+                <p><?php echo $taskInfo["Description"]?></p>
               </div>
             </div>
           </div>
@@ -96,7 +113,7 @@
                 Location
               </div>
               <div class="border border-t-0 border-teal rounded-b bg-teal-lightest px-4 py-3 text-black">
-                <p>Location of the job</p>
+                <p>Guildford</p>
               </div>
             </div>
             &emsp;&emsp;
