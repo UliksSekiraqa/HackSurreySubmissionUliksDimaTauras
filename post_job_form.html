@@ -17,24 +17,6 @@
 <!--Replace with your tailwind.css once created-->
 
 </head>
-<?php 
-  $taskID = $_GET["TaskID"];
-  $getTaskInfo = "SELECT *
-                        FROM tasks
-                        WHERE TaskID =$taskID";
-  require_once "includes/dbconnect.php";
-  $result = $conn->query($getTaskInfo);
-  $taskInfo = $result->fetch_assoc();
-
-  $creatorID = $taskInfo["CreatorID"];
-  $getCreatorInfoQuery = "SELECT Forename, Surname, Registration_date, Location
-                       FROM users
-                       WHERE UserID = ' $creatorID'";
-  $userResult = $conn->query($getCreatorInfoQuery);
-  $CreatorInfo = $userResult->fetch_assoc();
-
-  $conn->close();
-?> 
 
 <body class="bg-grey-lightest font-sans leading-normal tracking-normal">
   <div class="flex">
@@ -55,10 +37,10 @@
        <div class="text-sm lg:flex-grow">
          <a href="index.php" class="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4">
            Home
-        </a>
+         </a>
          <a href="post_job_form.html" class="block mt-4 lg:inline-block lg:mt-0 text-teal-lighter hover:text-white mr-4">
            Post Job
-         </a>       
+         </a>
        </div>
        <div>
          <a href="login.html" class="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal hover:bg-white mt-4 lg:mt-0">Login</a>
@@ -75,14 +57,13 @@
 
     <div class="bg-white mx-auto max-w-sm shadow-lg rounded-lg overflow-hidden">
       <div class="sm:flex sm:items-center px-6 py-4">
-        <img class="block h-16 sm:h-24 rounded-full mx-auto mb-4 sm:mb-0 sm:mr-4 sm:ml-0" src="https://previews.123rf.com/images/kurhan/kurhan1103/kurhan110300100/9050894-happy-man.jpg" alt="https://previews.123rf.com/images/kurhan/kurhan1103/kurhan110300100/9050894-happy-man.jpg">
         <div class="text-center sm:text-left sm:flex-grow">
           <div class="mb-4">
-            <p class="text-xl leading-tight text-black">Name: <?php echo $CreatorInfo["Forename"], ' ',$CreatorInfo["Surname"]?></p>
+            <p class="text-sp leading-tight text-black">Topic:</p>
+            <textarea name="text" rows="3" cols="8" wrap="soft" style="border:solid 1px black;"> </textarea>
             &nbsp
-            <p class="text-sm leading-tight text-grey-dark">Member Since: <?php echo $CreatorInfo["Registration_date"]?></p>
-            &nbsp
-            <p class="text-sp leading-tight text-black">Location: <?php echo $CreatorInfo["Location"]?></p>
+            <p class="text-sp leading-tight text-black">Location:</p>
+            <input type="text" id="text" name="text_name" style="border:solid 1px black;"/>
           </div>
 
         </div>
@@ -94,10 +75,12 @@
   <div class="bg-white mx-auto max-w-sm shadow-lg rounded-lg overflow-hidden">
     <div class="sm:flex sm:items-center px-6 py-4">
       <img class="block h-16 sm:h-24 rounded-full mx-auto mb-4 sm:mb-0 sm:mr-4 sm:ml-0" src="" alt="">
-      <div class="text-center sm:text-left sm:flex-grow">
-        <p class="text-xl leading-tight text-black">Description:</p>
+      <div class="sm:text-left sm:flex-grow">
         &nbsp
-        <p class="text-x1 leading-tight text-black"><?php echo $taskInfo["Description"]?></p>
+        <form>
+         Description:<br>
+         <textarea name="text" rows="10" cols="25" wrap="soft" style="border:solid 1px black;"> </textarea>
+        </form>
   </div>
   &nbsp
 
@@ -108,49 +91,37 @@
    </div>
    &nbsp
  </div>
- <!-- &nbsp
+ &nbsp
  <div class="bg-white mx-auto max-w-sm shadow-lg rounded-lg overflow-hidden">
    <div class="sm:flex sm:items-center px-6 py-4">
      <img class="block h-16 sm:h-24 rounded-full mx-auto mb-4 sm:mb-0 sm:mr-4 sm:ml-0" src="" alt="">
      <div class="text-center sm:text-left sm:flex-grow">
-       <p class="text-xl leading-tight text-black">Select which jobs you would like to undertake:</p>
+       <p class="text-sp leading-tight text-black">Price (optional):</p>
+         <input type="text" id="text" name="text_name" style="border:solid 1px black;"/>
        &nbsp
-       <p class="text-x1 leading-tight text-grey-dark">""</p>
-</div>
-&nbsp
-&nbsp
-<div>
-  &nbsp
-<input id="op1" type="checkbox" name="options[]" value="Lawn Mowing" />
-<label for="op1">Lawn Mowing</label>
-<br/>
-<input id="op2" type="checkbox" name="options[]" value="Laundry" />
-<label for="op2">Laundry</label>
-<br/>
-<input id="op3" type="checkbox" name="options[]" value="Watering Plants" />
-<label for="op3">Watering Plants</label>
-<br/>
-</select>
-&nbsp
-</div>
-&nbsp-->
 
-  </div>
 </div>
-  &nbsp
-  &nbsp
+</div>
+
   <div class="bg-white mx-auto max-w-sm shadow-lg rounded-lg overflow-hidden">
     <div class="sm:flex sm:items-center px-6 py-4">
       <img class="block h-16 sm:h-24 rounded-full mx-auto mb-4 sm:mb-0 sm:mr-4 sm:ml-0" src="" alt="">
       &nbsp
       <div class="text-center sm:text-left sm:flex-grow">
-        &nbsp
-        &nbsp
          <form>
-          Why you feel you would be suitable:<br>
-          <input type="text" id="text" name="text_name" style="width: 300px; height: 300px" /><br>
+          Type of payment:<br>
+          &nbsp
+          &nbsp
+          <select>
+    <option value="VISA Debit Card">VISA Debit Card</option>
+    <option value="MASTERCARD Debit Card">MASTERCARD Debit Card</option>
+    <option value="Credit Card">Credit Card</option>
+    <option value="Cryptocurrency">Cryptocurrency</option>
+  </select>
          </form>
-         <button type="button" onclick="alert('Application Submitted.')">Submit Application</button>
+&nbsp
+&nbsp
+         <button type="button" onclick="alert('Job Added.')" style="border:solid 1px black;">Add Job</button>
     </div>
 </body>
 
