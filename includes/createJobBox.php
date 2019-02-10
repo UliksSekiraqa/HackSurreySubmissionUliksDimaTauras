@@ -1,19 +1,10 @@
 <?php 
-    $TaskID = 1;
-    require_once "dbconnect.php";
-    $getTaskInfoQuery = "SELECT *
-                         FROM tasks
-                         WHERE TaskID = '$TaskID'";
-    $taskResult = $conn->query($getTaskInfoQuery);
-    $taskInfo = $taskResult->fetch_assoc();
-
     $creatorID = $taskInfo["CreatorID"];
     $getCreatorInfoQuery = "SELECT Forename, Surname
                          FROM users
                          WHERE UserID = ' $creatorID'";
     $userResult = $conn->query($getCreatorInfoQuery);
     $CreatorInfo = $userResult->fetch_assoc();
-    $conn->close();
 ?>
 <div class="max-w-md w-full lg:flex mx-auto mt-4 shadow-md">
     <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style="background-image: url('https://tailwindcss.com/img/card-left.jpg')" title="Woman holding a mug">
