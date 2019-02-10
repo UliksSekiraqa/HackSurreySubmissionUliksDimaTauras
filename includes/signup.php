@@ -3,7 +3,7 @@
 //     header("Location: ../signupForm.html");
 //     exit();
 // };
-debug_to_console($_POST);
+//debug_to_console($_POST);
 require_once "dbconnect.php";
 $forename = mysqli_real_escape_string($conn, $_POST["forename"]);
 $surname = mysqli_real_escape_string($conn, $_POST["surname"]);

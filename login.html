@@ -22,24 +22,24 @@
   <br>
   <div class="container mx-auto">
     <div class="w-full max-w-xs mx-auto">
-      <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" action="includes/login.php" method="POST">
         <div class="mb-4">
-          <label class="block text-grey-darker text-sm font-bold mb-2" for="username">
-            Username
+          <label class="block text-grey-darker text-sm font-bold mb-2" for="email">
+            Email
           </label>
-          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username">
+          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="example@surrey.ac.uk" name="email">
         </div>
         <div class="mb-6">
           <label class="block text-grey-darker text-sm font-bold mb-2" for="password">
             Password
           </label>
-          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************">
+          <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" name="password">
         </div>
         <div class="flex items-center justify-between">
-          <button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
-            Sign In
+          <button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+            Log In
           </button>
-          <a class="inline-block align-baseline font-bold text-sm text-blue hover:text-blue-darker" href="#">
+          <a class="inline-block align-baseline font-bold text-sm text-blue hover:text-blue-darker" href="signupForm.html">
             Sign up
           </a>
         </div>
